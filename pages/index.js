@@ -12,16 +12,21 @@ import {
 
 export default function Home({ bannerData, products }) {
  console.log(bannerData);
-
  return (
   <>
-   <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-   <div className='products-heading'>
-    <h2>Best selling products</h2>
-    <p>Speakers of many variations</p>
-    <div className='products-container'>{['ali'].map((product) => product)}</div>
-    <FooterBanner />
-   </div>
+   <Layout>
+    <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+    <div className='products-heading'>
+     <h2>Best selling products</h2>
+     <p>Speakers of many variations</p>
+     <div className='products-container'>
+      {products.map((product) => (
+       <Product key={product._id} product={product} />
+      ))}
+     </div>
+     <FooterBanner footerBanner={bannerData && bannerData[0]} />
+    </div>
+   </Layout>
   </>
  );
 }
