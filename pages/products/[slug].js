@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Layout, Product } from '../../components';
 import { client, urlFor } from '../../lib/client';
 import { BsStarHalf, BsStarFill, BsStar } from 'react-icons/bs';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import ProductContext from '../../context/ProductContext';
 
 export default function ProductDeatils({ product, products }) {
+ const { buy, addToCart, decQty, incQty, qty } = useContext(ProductContext);
  const [index, setIndex] = useState(0);
  const { name, details, price, image } = product;
- console.log(product);
- //  console.log(products);
+
  return (
   <Layout>
    <div className='product-detail-container'>
@@ -23,6 +24,7 @@ export default function ProductDeatils({ product, products }) {
      <div className='carousel-container'>
       {image?.map((item, idx) => (
        <img
+        key={item._key}
         src={urlFor(item.asset._ref)}
         alt='product-image'
         className={index === idx ? 'small-image selected-image' : 'small-image'}
@@ -51,21 +53,25 @@ export default function ProductDeatils({ product, products }) {
      <div className='quantity'>
       <h4>Quantity:</h4>
       <div className='quantity-desc'>
-       <span className='minus'>
+       <span className='minus' onClick={decQty}>
         <AiOutlineMinus />
        </span>
-       <span className='num'>1</span>
-       <span className='plus'>
+       <span className='num'>{qty}</span>
+       <span className='plus' onClick={incQty}>
         <AiOutlinePlus />
        </span>
       </div>
      </div>
 
      <div className='buttons'>
-      <button type='button' className='add-to-cart'>
+      <button
+       type='button'
+       className='add-to-cart'
+       onClick={() => addToCart(product, qty)}
+      >
        Add to cart
       </button>
-      <button type='button' className='buy-now'>
+      <button type='button' className='buy-now' onClick={buy}>
        Buy now
       </button>
      </div>

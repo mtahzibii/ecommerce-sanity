@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiOutlineShopping } from 'react-icons/ai';
+import ProductContext from '../context/ProductContext';
 
 import Link from 'next/link';
 
 export default function Navbar() {
+ const { qty } = useContext(ProductContext);
  return (
   <div className='navbar-container'>
    <p>
@@ -11,9 +13,9 @@ export default function Navbar() {
      Headphones Market
     </Link>
    </p>
-   <button type='button' onClick='' className='cart-icon'>
+   <button type='button' className='cart-icon'>
     {<AiOutlineShopping />}
-    <span className='cart-item-qty'>1</span>
+    <span className='cart-item-qty'>{qty}</span>
    </button>
   </div>
  );

@@ -11,7 +11,6 @@ import {
 } from '../components/index';
 
 export default function Home({ bannerData, products }) {
- console.log(bannerData);
  return (
   <>
    <Layout>
