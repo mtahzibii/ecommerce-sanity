@@ -284,7 +284,7 @@ span.text-red {
 }
 .cart-container {
  height: 100vh;
- width: 600px;
+ width: 550px;
  background-color: white;
  float: right;
  padding: 40px 10px;
@@ -327,14 +327,30 @@ span.text-red {
 .cart-num-items {
  margin-left: 10px;
  color: #f02d34;
+ font-size: 14px;
 }
 .empty-cart {
  margin: 40px;
  text-align: center;
 }
+
 .empty-cart h3 {
  font-weight: 600;
  font-size: 20px;
+}
+
+.empty-cart button {
+ margin-top: 40px;
+ border: none;
+ font-weight: 500;
+ font-size: 14px;
+ background-color: #ce1016;
+ color: #fff;
+ cursor: pointer;
+ padding: 10px 70px;
+ border-radius: 100px;
+ text-align: center;
+ text-transform: uppercase;
 }
 .cancel {
  cursor: pointer;
@@ -351,20 +367,27 @@ span.text-red {
  padding: 20px;
 }
 .product .cart-product-image {
- width: 180px;
- height: 150px;
+ width: 140px;
+ height: 120px;
  border-radius: 15px;
  background-color: #ebebeb;
+}
+.item-desc {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: flex-start;
+ margin: 10px 0px;
 }
 .item-desc .flex {
  display: flex;
  justify-content: space-between;
- width: 350px;
+ width: 300px;
  color: #324d67;
 }
-.item-desc .bottom {
+/* .item-desc .bottom {
  margin-top: 60px;
-}
+} */
 .flex h5 {
  font-size: 24px;
 }
@@ -374,16 +397,17 @@ span.text-red {
 .total {
  display: flex;
  justify-content: space-between;
+ padding: 0 10px;
 }
 .total h3 {
  font-size: 22px;
 }
 .remove-item {
- font-size: 24px;
+ border: none;
+ background-color: transparent;
+ font-size: 22px;
  color: #f02d34;
  cursor: pointer;
- background: transparent;
- border: none;
 }
 .cart-bottom {
  position: absolute;
@@ -391,12 +415,28 @@ span.text-red {
  right: 5px;
  width: 100%;
  padding: 30px 65px;
+ text-align: center;
 }
 
 .btn-container {
- width: 400px;
+ width: 4 00px;
  margin: auto;
+ text-align: center;
 }
+
+.btn-container .btn-payment {
+ width: 70%;
+ padding: 10px;
+ margin: 30px 10px 0;
+ background-color: #f02d34;
+ text-transform: uppercase;
+ color: white;
+ font-weight: 500;
+ font-size: 18px;
+ border-radius: 100px;
+ border: none;
+}
+
 .btn {
  width: 100%;
  max-width: 400px;
@@ -761,6 +801,7 @@ span.text-red {
   width: 350px;
   height: 350px;
  }
+
  .cart-container {
   width: 415px;
   padding: 4px;
