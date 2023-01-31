@@ -6,9 +6,15 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import ProductContext from '../../context/ProductContext';
 
 export default function ProductDeatils({ product, products }) {
- const { buy, addToCart, decQty, incQty, qty } = useContext(ProductContext);
+ const { buy, addToCart, decQty, incQty, qty, setShowCart } =
+  useContext(ProductContext);
  const [index, setIndex] = useState(0);
  const { name, details, price, image } = product;
+
+ const handleBuyNow = () => {
+  addToCart(product, qty);
+  setShowCart(true);
+ };
 
  return (
   <Layout>
@@ -34,7 +40,7 @@ export default function ProductDeatils({ product, products }) {
      </div>
     </div>
     <div className='rightSide'>
-     <h1>Nice Headphones</h1>
+     <h1>{name}</h1>
 
      <div className='reviews'>
       <BsStarFill size={14} color='red' />
@@ -71,7 +77,7 @@ export default function ProductDeatils({ product, products }) {
       >
        Add to cart
       </button>
-      <button type='button' className='buy-now' onClick={buy}>
+      <button type='button' className='buy-now' onClick={handleBuyNow}>
        Buy now
       </button>
      </div>

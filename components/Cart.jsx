@@ -1,5 +1,6 @@
 import React, { useRef, useContext } from 'react';
 import Link from 'next/link';
+import getStripe from '../lib/getStripe';
 import {
  AiOutlineMinus,
  AiOutlinePlus,
@@ -25,6 +26,27 @@ export default function Cart() {
   qty,
   toggleCartItemQuanitity,
  } = useContext(ProductContext);
+
+ const handleCheckout = async () => {
+  const stripe = await getStripe();
+
+  const response = await fetch('/api/stripe', {
+   method: 'POST',
+   headers: {
+    'Content-Type': 'application/json',
+   },
+   body: JSON.stringify(cartItems),
+  });
+
+  if (response.statusCode === 500) return;
+
+  const data = await response.json();
+
+  toast.loading('Redirecting...');
+
+  stripe.redirectToCheckout({ sessionId: data.id });
+ };
+
  return (
   <div className='cart-wrapper' ref={cartRef}>
    <div className='cart-container'>
@@ -99,7 +121,7 @@ export default function Cart() {
       </div>
 
       <Link href='/' className='btn-container'>
-       <button type='button' className='btn-payment'>
+       <button type='button' className='btn-payment' onClick={handleCheckout}>
         Pay With Stripe
        </button>
       </Link>

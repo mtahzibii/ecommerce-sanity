@@ -100,6 +100,9 @@ export const ProductProvider = ({ children }) => {
    value={{
     showCart,
     setShowCart,
+    setTotalPrice,
+    setTotalQuantities,
+    setCartItems,
     totalPrice,
     cartItems,
     totalQuantities,

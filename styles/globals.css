@@ -430,6 +430,7 @@ span.text-red {
  margin: 30px 10px 0;
  background-color: #f02d34;
  text-transform: uppercase;
+ cursor: pointer;
  color: white;
  font-weight: 500;
  font-size: 18px;
@@ -680,12 +681,13 @@ span.text-red {
 }
 .success-wrapper,
 .cancel-wrapper {
- background-color: white;
+ background-color: rgb(255, 255, 255);
  min-height: 60vh;
 }
 .success,
 .cancel {
- width: 1000px;
+ width: 550px;
+ height: 300px;
  margin: auto;
  margin-top: 160px;
  background-color: #dcdcdc;
@@ -699,7 +701,14 @@ span.text-red {
 
 .success .icon {
  color: green;
- font-size: 40px;
+ font-size: 60px;
+}
+
+.success h3 {
+ margin-top: 20px;
+ font-size: 18px;
+ color: #324d67;
+ text-transform: capitalize;
 }
 .success h2 {
  text-transform: capitalize;
@@ -709,16 +718,17 @@ span.text-red {
  color: #324d67;
 }
 .success .email-msg {
- font-size: 16px;
+ font-size: 14px;
  font-weight: 600;
  text-align: center;
+ margin-top: 5px;
 }
 .cancel p {
  font-size: 20px;
  font-weight: 600;
 }
 .success .description {
- font-size: 16px;
+ font-size: 14px;
  font-weight: 600;
  text-align: center;
  margin: 10px;
@@ -727,6 +737,18 @@ span.text-red {
 .success .description .email {
  margin-left: 5px;
  color: #f02d34;
+}
+
+.btn-continue-shopping {
+ padding: 10px 70px;
+ background-color: #ce1016;
+ font-size: 14px;
+ text-transform: uppercase;
+ font-weight: 600;
+ border: none;
+ border-radius: 40px;
+ color: white;
+ margin-top: 30px;
 }
 .product-max-qty {
  margin-top: 10px;
