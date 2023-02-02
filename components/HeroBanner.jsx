@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { urlFor } from '../lib/client';
+import Image from 'next/image';
 
 export default function HeroBanner({ heroBanner }) {
  return (
@@ -10,9 +11,11 @@ export default function HeroBanner({ heroBanner }) {
     <h3>{heroBanner.midText}</h3>
     <h1>{heroBanner.largeText1}</h1>
     <img
+     width={400}
+     height={350}
      src={urlFor(heroBanner.image)}
      alt='headphones'
-     className='hero-banner-image  '
+     className='hero-banner-image'
     />
 
     <div>

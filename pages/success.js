@@ -5,7 +5,7 @@ import { useState, useEffect, useContext } from 'react';
 import ProductContext from '../context/ProductContext';
 import { runFireWorks } from '../lib/utils';
 
-export default function success() {
+const Success = () => {
  const { setTotalPrice, setTotalQuantities, setCartItems } =
   useContext(ProductContext);
 
@@ -41,4 +41,6 @@ export default function success() {
    </div>
   </div>
  );
-}
+};
+
+export default Success;
